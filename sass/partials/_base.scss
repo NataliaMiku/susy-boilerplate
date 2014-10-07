@@ -1,17 +1,35 @@
-$map: layout(24 1/4 fluid float inside);
-//@include layout(16 (60px 10px) split static);
 
-@include with-layout(12) {
   body {
     background: #b9bab0;
     @include container(80%);
   }
+
+
   main {
-    @include span(8 at 0 of 24 1/8);
+    @include breakpoint($medium){
+      @include span(8);
+    }
   }
   aside {
-    @include span(4 at 9);
+    @include breakpoint($medium) {
+      @include span(4 at 9);
+    }
   }
+
+
+@include breakpoint(1200px) {
+  @include layout(24);
+  main {
+    @include span(21);
+    .col1, .col2, .col3 {
+      @include span(1 of 3);
+    }
+  }
+  aside {
+    @include span(3 at 21);
+  }
+}
+
 
   aside {
     ul {
@@ -27,7 +45,7 @@ $map: layout(24 1/4 fluid float inside);
       }
     }
   }
-}
+
 
 
 
